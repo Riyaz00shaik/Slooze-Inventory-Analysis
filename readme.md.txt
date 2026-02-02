@@ -1,54 +1,61 @@
-# Slooze Inventory Optimization Project
+# Slooze Inventory Analysis
 
 ## Project Overview
-This project analyzes sales, purchases, and inventory data to improve stock management, reduce financial loss, and optimize supplier performance.
+This project performs inventory, sales, and purchase analysis for a retail wine & spirits company.
 
-## Objectives
-- Demand Forecasting
-- ABC Inventory Classification
-- Economic Order Quantity (EOQ)
-- Reorder Point Calculation
-- Lead Time Analysis
-- Inventory Turnover Analysis
-- Dead Stock Identification
+The goal is to:
+- Optimize inventory levels
+- Perform ABC analysis
+- Forecast demand
+- Calculate EOQ
+- Analyze supplier lead time
+- Improve procurement efficiency
 
-## Approach
+---
 
-1. Data Cleaning
-   - Standardized date formats
-   - Removed missing values
-   - Created revenue metrics
+## Dataset
+Sample dataset is included (reduced size for GitHub upload).
 
-2. Sales Analysis
-   - Monthly revenue trend analysis
-   - Top-performing products identification
+Original dataset was large and trimmed for repository size compliance.
 
-3. ABC Analysis
-   - Classified products into A, B, C categories
-   - Prioritized high-revenue inventory
+---
 
-4. Inventory Optimization
-   - Calculated EOQ
-   - Determined reorder points
-   - Evaluated inventory turnover
+## Analysis Performed
 
-5. Supplier Performance
-   - Lead time analysis
-   - Vendor efficiency comparison
+### 1. Demand Forecasting
+- Time-series based monthly sales aggregation
+- Revenue trend visualization
 
-6. Demand Forecasting
-   - Time-series forecasting using historical sales
+### 2. ABC Analysis
+- Inventory categorized into A, B, C classes
+- Prioritization based on contribution
 
-## Key Insights
-- A small percentage of products generate majority of revenue.
-- Certain suppliers have significantly higher lead times.
-- Slow-moving items tie up working capital.
-- Forecasting improves purchasing planning and reduces stockouts.
+### 3. EOQ Calculation
+- Economic order quantity optimization
+- Holding vs ordering cost comparison
+
+### 4. Reorder Point
+- Safety stock consideration
+- Lead time based reorder strategy
+
+### 5. Lead Time Analysis
+- Supplier efficiency evaluation
+
+---
+
+## Project Structure
+
+data/ → Input datasets  
+src/ → Python analysis script  
+outputs/ → Generated results and visualizations  
+notebooks/ → Optional exploration  
+
+---
 
 ## How to Run
 
 1. Install dependencies:
-   pip install -r requirements.txt
+   pip install -r requirement.txt
 
-2. Run the analysis:
+2. Run:
    python inventory_analysis.py
