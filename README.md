@@ -46,7 +46,7 @@ Original dataset was large and trimmed for repository size compliance.
 ## Project Structure
 
 data/ → Input datasets  
-src/ → Python analysis script  
+inventory_analysis.py → Python analysis script  
 outputs/ → Generated results and visualizations  
 notebooks/ → Optional exploration  
 
