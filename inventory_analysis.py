@@ -23,9 +23,13 @@ print(sales.info())
 
 #converting the dates
 
-sales['SalesDate'] = pd.to_datetime(sales['SalesDate'])
-purchases['PODate'] = pd.to_datetime(purchases['PODate'])
-purchases['ReceivingDate'] = pd.to_datetime(purchases['ReceivingDate'])
+sales['SalesDate'] = pd.to_datetime(sales['SalesDate'],errors='coerce')
+purchases['PODate'] = pd.to_datetime(purchases['PODate'],errors='coerce')
+purchases['ReceivingDate'] = pd.to_datetime(purchases['ReceivingDate'],errors='coerce')
+
+sales = sales.dropna(subset=['SalesDate'])
+purchases = purchases.dropna(subset=['PODate', 'ReceivingDate'])
+
 
 
 #removing the missing values
@@ -45,11 +49,24 @@ sales['Revenue'] = sales['SalesQuantity'] * sales['SalesPrice']
 total_revenue = sales['Revenue'].sum()
 print("Total Revenue:", total_revenue)
 
-#monthly
-monthly_sales = sales.set_index('SalesDate')['Revenue'].resample('M').sum()
+#month
 
-monthly_sales.plot()
+# Set index correctly
+sales = sales.set_index('SalesDate')
+
+# Monthly revenue calculation
+monthly_sales = sales['Revenue'].resample('ME').sum()
+
+# Plot
+
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(10,5))
+plt.plot(monthly_sales.index, monthly_sales.values)
 plt.title("Monthly Revenue Trend")
+plt.xlabel("Month")
+plt.ylabel("Revenue")
+plt.tight_layout()
 plt.show()
 
 #some top products
@@ -118,7 +135,7 @@ print("Reorder Point:", reorder_point)
 
 from statsmodels.tsa.holtwinters import ExponentialSmoothing
 
-monthly_qty = sales.set_index('SalesDate')['SalesQuantity'].resample('M').sum()
+monthly_qty = sales.set_index('SalesDate')['SalesQuantity'].resample('ME').sum()
 
 model = ExponentialSmoothing(monthly_qty, trend='add')
 fit = model.fit()
