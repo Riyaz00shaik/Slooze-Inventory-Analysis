@@ -59,3 +59,19 @@ notebooks/ → Optional exploration
 
 2. Run:
    python inventory_analysis.py
+
+
+## What I Learned
+
+- Applied demand forecasting using historical sales trends.
+- Implemented ABC analysis to prioritize high-value inventory.
+- Calculated Economic Order Quantity (EOQ) for cost optimization.
+- Designed reorder point logic using lead time and demand.
+- Translated business problems into data-driven solutions.
+
+## Key Insights
+
+- A small percentage of products generate majority of revenue (Pareto principle observed).
+- Certain products show irregular demand patterns.
+- Reorder point logic helps prevent stockouts.
+- EOQ reduces unnecessary ordering frequency.
